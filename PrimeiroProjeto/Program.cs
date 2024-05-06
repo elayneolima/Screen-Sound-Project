@@ -4,8 +4,9 @@ string mensagemDeBoasVindas = "Boas Vindas ao Screen Sound";
 #endregion
 
 #region Funcao exibe mensagem
-void ExibirMensagemBoasVindas()
-{
+void ExibirLogo()
+
+{ 
     Console.WriteLine(@"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
 ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
@@ -22,6 +23,7 @@ void ExibirMensagemBoasVindas()
 #region Funcao exibir opcoes menu
 void ExibirOpcoesDoMenu()
 {
+    ExibirLogo();
     Console.WriteLine("\nDigite 1 para registrar uma banda ");
     Console.WriteLine("Digite 2 para listar uma banda ");
     Console.WriteLine("Digite 3 para avaliar uma banda ");
@@ -33,7 +35,7 @@ void ExibirOpcoesDoMenu()
     int opcaoEscolhidaNum = int.Parse(opcaoEscolhida);
     switch (opcaoEscolhidaNum) 
     {
-        case 1: Console.WriteLine("Você escolheu a opção " + opcaoEscolhida);
+        case 1: RegistrarBanda();
             break;
         case 2: Console.WriteLine("Você escolheu a opção 2");
             break;
@@ -51,7 +53,20 @@ void ExibirOpcoesDoMenu()
 }
 #endregion
 
+#region Funcao RegistrarBanda
+void RegistrarBanda()
+{
+    Console.Clear();
+    Console.Write("Digite o nome da banda:");
+    string nomeDaBanda = Console.ReadLine()!;
+    Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirOpcoesDoMenu();
+
+}
+#endregion
+
 #region Chamada das funcoes
-ExibirMensagemBoasVindas();
 ExibirOpcoesDoMenu();
 #endregion
